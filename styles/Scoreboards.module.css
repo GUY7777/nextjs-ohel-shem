@@ -1,0 +1,39 @@
+.header{
+  text-align: center;
+}
+
+.tables__select {
+  margin-top: 1rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 93%;
+  max-width: 400px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid #cbd1d8;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: all .2s ease-in-out;
+  background: #fff url(../components/Tables/down.svg) no-repeat center right 12px / 18px 18px;
+}
+/*IE*/
+.tables__select::-ms-expand {
+  display: none;
+}
+.tables__select:focus {
+  outline: 0;
+  border-color: #7bbaff;
+  box-shadow: 0 0 0 3px rgba(0, 121, 250, .3);
+}
+.toolbar{
+  margin-top: 1.5rem;
+}
+.tables{
+  margin-top: 2rem;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  max-width: 1792px;
+  filter: drop-shadow(0px 0px 11px #bdc1e6);
+}

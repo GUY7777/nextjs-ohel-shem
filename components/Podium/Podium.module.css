@@ -1,0 +1,84 @@
+.container{
+    position: relative;
+    /* width: 612px; */
+}
+.title {
+    text-align: center;
+}
+.firstPlace{
+    overflow: scroll;
+    overflow-y: auto;
+    max-height: 30%;
+    overflow-x: hidden;
+    font-size: 0.9rem;
+    text-align: right;
+    position: absolute;
+    /* top: 18.3rem; */
+        /* right: 13rem; */
+    top: 57.3%;
+    right: 34%;
+}
+.firstPlaceScore{
+    position: absolute;
+    /* top: 15.9rem;
+    right: 17rem; */
+    top: 50%;
+    right: 44%;
+}
+.secondPlace{
+    overflow: scroll;
+    overflow-y: auto;
+    max-height: 22%;
+    overflow-x: hidden;
+    font-size: 0.9rem;
+    text-align: right;
+    position: absolute;
+    /* top: 20.5rem;
+    right: 4.5rem; */
+    top: 64.1%;
+    right: 12%;
+}
+.secondPlaceScore{
+    position: absolute;
+    /* top: 18.1rem;
+    right: 8.5rem; */
+    top: 57%;
+    right: 22%;
+}
+.thirdPlace{
+    overflow: scroll;
+    overflow-y: auto;
+    /* max-height: 82px; */
+    max-height: 16%;
+    overflow-x: hidden;
+    font-size: 0.9rem;
+    text-align: right;
+    position: absolute;
+    /* top: 23rem;
+    right: 22.9rem; */
+    top: 72.1%;
+    right: 60%;
+}
+.thirdPlaceScore{
+    position: absolute;
+    /* top: 20.5rem;
+    right: 26.7rem; */
+    top: 64%;
+    right: 70%;
+}
+
+@media screen and (max-width: 600px) {
+  .firstPlace, .secondPlace, .thirdPlace{
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 458px) {
+  .firstPlace, .secondPlace, .thirdPlace{
+    font-size: 0.7rem;
+  }
+  .firstPlaceScore, .secondPlaceScore, .thirdPlaceScore{
+    font-size: 1rem;
+    margin-top: 0.3rem;
+  }
+}

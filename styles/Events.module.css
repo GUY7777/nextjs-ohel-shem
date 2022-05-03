@@ -1,0 +1,14 @@
+.eventsList {
+    width: 90vw;
+    max-width: 1870px;
+    display: grid;
+    margin: 2rem auto;
+    gap: 2rem;
+}
+
+#id1{
+    flex-direction: row;
+}
+#id2{
+    flex-direction: row-reverse;
+}

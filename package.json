@@ -5,13 +5,21 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start --hostname=192.168.1.23 --port=3000",
+    "lint": "next lint",
+    "server": "next dev --hostname=192.168.1.23 --port=3000"
   },
   "dependencies": {
+    "@emotion/react": "^11.8.2",
+    "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.5.1",
+    "@mui/material": "^5.5.1",
+    "aos": "^3.0.0-beta.6",
+    "firebase": "^9.6.8",
     "next": "12.1.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "sharp": "^0.30.3"
   },
   "devDependencies": {
     "eslint": "8.10.0",

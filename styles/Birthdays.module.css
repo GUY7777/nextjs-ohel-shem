@@ -1,0 +1,65 @@
+.birthdays__list{
+    direction: rtl;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 2rem;
+    row-gap: 2rem;
+    margin-top: 2rem;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    width: 90%;
+    max-width: 2000px;
+}
+
+.imgs {
+    margin-top: 2rem;
+    margin-right: auto;
+    margin-left: auto;
+    width: 80vw;
+    justify-content: center;
+    text-align: center;
+}
+
+.happy-birthday {
+    width: 40rem;
+}
+
+@media screen and (min-width: 1287px) and (max-width: 1537px) {
+    .birthdays__list{
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media screen and (min-width: 1045px) and (max-width: 1287px) {
+    .birthdays__list{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (min-width: 790px) and (max-width: 1045px) {
+    .birthdays__list{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .happy-birthday {
+        width: 80vw;
+    }
+}
+
+@media screen and (min-width: 520px) and (max-width: 790px) {
+    .birthdays__list{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .happy-birthday {
+        width: 80vw;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 520px) {
+    .birthdays__list{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .happy-birthday {
+        width: 80vw;
+    }
+}
