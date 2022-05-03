@@ -33,7 +33,13 @@ export default function Home() {
             </p>
           </div>
           <div className={styles.aboutImg}>
-            <Image src="/images/img1.PNG" alt="" width={598} height={598} />
+            <Image
+              src={`https://firebasestorage.googleapis.com/v0/b/ohel-shem-2a8a9.appspot.com/o/img1.png?alt=media`}
+              alt=""
+              width={598}
+              height={598}
+            />
+            {/* <Image src="/images/img1.PNG" alt="" width={598} height={598} /> */}
           </div>
         </div>
         <div className={styles.info}>
