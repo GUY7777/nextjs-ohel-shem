@@ -9,4 +9,5 @@
 .img {
     display: flex;
     border: solid 2px black;
+    max-width: 93%;
 }

@@ -56,7 +56,7 @@ export default function Home() {
             <h2>אלופת השבוע</h2>
             <div className={styles.weekChampions_img}>
               <Image
-                src={`https://firebasestorage.googleapis.com/v0/b/ohel-shem-2a8a9.appspot.com/o/champions-imgs%2F${2021}%${`2FKQZT3920.JPG`}?alt=media`}
+                src={`https://firebasestorage.googleapis.com/v0/b/ohel-shem-2a8a9.appspot.com/o/champions-imgs%2F${process.env.CHAMPIONS_IMG_YEAR}%${process.env.CHAMPIONS_IMG_NAME}?alt=media`}
                 alt=""
                 width={2000}
                 height={1100}
