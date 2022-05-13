@@ -12,6 +12,7 @@
   filter: drop-shadow(0 0 0.50rem rgb(39, 38, 38));
   /*stick to the top*/
   position: sticky;
+  /* inset: 0; */
   top: 0;
   z-index: 100;
 }
