@@ -7,7 +7,7 @@ import Navbar from "../components/Navbar/Navbar";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div>
+    <div style={{ overflow: "hidden" }}>
       <Head>
         <title>אוהל-שם כדורגל איכותי בשישי</title>
         <meta name="description" content="אוהל-שם כדורגל איכותי בשישי" />

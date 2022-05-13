@@ -68,6 +68,27 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <div>
+        <h1 className="pages_title">כתבה עלינו בעיתון</h1>
+        <div className={styles.report}>
+          <div data-aos="fade-down-right">
+            <Image
+              src={`/images/report-img1.png`}
+              alt=""
+              width={1200}
+              height={848}
+            />
+          </div>
+          <div data-aos="fade-down-left">
+            <Image
+              src={`/images/report-img2.png`}
+              alt=""
+              width={1200}
+              height={848}
+            />
+          </div>
+        </div>
+      </div>
       {ZoomImg !== -1 ? (
         <div
           className="popupImage__background"
