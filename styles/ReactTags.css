@@ -1,0 +1,149 @@
+.tag-select .tag-select-confirm-delete a + a, .tag-select .tag-select-confirm-delete span + a {
+	 margin-left: 5px;
+}
+ .react-tags {
+	 display: inline-block;
+	 position: relative;
+	 padding: 0;
+	 border-radius: 1px;
+	/* shared font styles */
+	 font-size: 1em;
+	 line-height: 1.2;
+	 height: 40px;
+} 
+.react-tags .react-tags__selected {
+	 display: inline;
+}
+ .react-tags .react-tags__selected-tag {
+	 padding: 8px 10px;
+	 border-radius: 2px;
+	 background: #d6dde8;
+	 border-width: 1px;
+	 border-style: solid;
+	 border-color: #d6dde8;
+	 color: #1f2d3b;
+	 display: inline-block;
+	 box-sizing: border-box;
+	 margin: 0 3px 3px 0;
+	/* match the font styles */
+	 font-size: inherit;
+	 line-height: inherit;
+	/* Disable all click events on the button */
+	 cursor: default;
+}
+ .react-tags .react-tags__selected-tag button {
+	 background: none;
+	 border: none;
+	 display: inline-block;
+	 padding: 0;
+	 font-size: 14px;
+	 margin-left: 8px;
+	 cursor: pointer;
+}
+ .react-tags .react-tags__selected-tag:focus {
+	 outline: none;
+}
+ .react-tags .react-tags__search {
+	 display: inline-block;
+	/* clicking anywhere will focus the input */
+	 cursor: text;
+	/* match tag layout */
+	 margin-bottom: 6px;
+	/* prevent autoresize overflowing the container */
+	 max-width: 100%;
+}
+ @media screen and (min-width: 30em) {
+	 .react-tags .react-tags__search {
+		/* this will become the offsetParent for suggestions */
+		 position: relative;
+	}
+}
+ .react-tags .react-tags__search-input {
+	height: 40px;
+	 padding: 4px 10px;
+	 border-radius: 2px;
+	 background: #fff;
+	 border-width: 1px;
+	 border-style: solid;
+	 border-color: transparent;
+	 color: #70767f;
+}
+ .react-tags.is-focused .react-tags__search-input {
+	 padding: 4px 10px;
+	 border-radius: 2px;
+	 background: #fff;
+	 border-width: 1px;
+	 border-style: dashed;
+	 border-color: #0097c0;
+	 color: #0097c0;
+}
+ .react-tags .react-tags__search input {
+	/* prevent autoresize overflowing the container */
+	 max-width: 100%;
+	/* remove styles and layout from this element */
+	 margin: 0;
+	 padding: 0;
+	 border: 0;
+	 outline: none;
+	 margin-right: 0.2em;
+	/* match the font styles */
+	 font-size: inherit;
+	 line-height: inherit;
+}
+ .react-tags .react-tags__search input::placeholder {
+	 color: #70767f;
+}
+ .react-tags .react-tags__search input::-ms-clear {
+	 display: none;
+}
+ .react-tags .react-tags__suggestions {
+	 position: absolute;
+	 top: 100%;
+	 /* left: 0; */
+	 width: auto !important;
+	 white-space: nowrap;
+	 z-index: 2;
+}
+ @media screen and (min-width: 30em) {
+	 .react-tags .react-tags__suggestions {
+		 width: auto;
+	}
+}
+ .react-tags .react-tags__suggestions ul {
+	 margin: 4px -1px;
+	 padding: 0;
+	 list-style: none;
+	 background: white;
+	 border: 1px solid #adb5c2;
+	 border-radius: 2px;
+	 box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+	 max-height: 200px;
+	 overflow-y: scroll;
+}
+ .react-tags .react-tags__suggestions ul::-webkit-scrollbar {
+	 -webkit-appearance: none;
+	 width: 7px;
+}
+ /* .react-tags .react-tags__suggestions ul::-webkit-scrollbar-thumb {
+	 border-radius: 4px;
+	 direction: rtl;
+	 background-color: rgba(93, 0, 255, 0.5);
+	 -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+} */
+ .react-tags .react-tags__suggestions li {
+	 font-size: 12px;
+	 padding: 6px 8px;
+	 cursor: pointer;
+}
+ .react-tags .react-tags__suggestions li:hover, .react-tags .react-tags__suggestions li.is-active {
+	 background: #2f6ce632;
+}
+ .react-tags .react-tags__suggestions li.is-disabled {
+	 opacity: 0.5;
+	 cursor: auto;
+}
+ .react-tags .react-tags__suggestions li mark {
+	 background: none;
+	 font-weight: 600;
+	 padding: 0;
+}

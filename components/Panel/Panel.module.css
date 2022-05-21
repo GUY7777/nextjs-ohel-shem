@@ -1,0 +1,81 @@
+.addGameContainer{
+  display: flex;
+  flex-direction: column;
+  column-gap: 1%;
+  row-gap: 0.8rem;
+  padding-bottom: 30px;
+  margin-bottom: 20px;
+  border-bottom: 5px solid rgb(255, 202, 27);
+}
+.dateInput:focus, .playersInput:focus {
+    box-shadow: none;
+    outline-color: rgba(94, 91, 91, 0.324);
+    outline-width: thin;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+
+.dateInput, .playersInput {
+    /* margin-top: 1rem; */
+    appearance: none;
+    -webkit-appearance: none;
+    color: #2d3030;
+    font-family: "Helvetica", arial, sans-serif;
+    font-size: 18px;
+    border:1px solid #ecf0f1;
+    background:#ecf0f1;
+    padding:5px;
+    display: inline-block !important;
+    visibility: visible !important;
+    border-radius: 3px;
+    height: 40px;
+}
+.dateInput::-webkit-clear-button {
+    display: none;
+}
+
+.dateInput::-webkit-inner-spin-button { 
+    display: none;
+}
+
+.dateInput::-webkit-calendar-picker-indicator {
+    color: #2c3e50;
+}
+
+.container {
+  margin: 1rem;
+  border: #28d280 solid 2px;
+  padding: 1rem;
+  width: 98vw;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  direction: rtl;
+}
+.addGameBtn{
+  background-color: #28d280;
+  border: none;
+  margin-top: 1rem;
+  height: 40px;
+  font-size: 20px;
+  font: unset;
+  font-weight: 500;
+  border-radius: 3px;
+}
+.addGameBtn:hover{
+  cursor: pointer;
+}
+.saveGoalsBtn {
+  background-color: #28d280;
+  border: none;
+  margin-top: 1rem;
+  height: 40px;
+  font-size: 20px;
+  font: unset;
+  font-weight: 500;
+  border-radius: 3px;
+  width: 100%;
+}
+.saveGoalsBtn:hover {
+  cursor: pointer;
+}

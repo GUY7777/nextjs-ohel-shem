@@ -1,4 +1,5 @@
 import '../styles/globals.css';
+import '../styles/ReactTags.css'
 import "../components/Navbar/Navbar.css";
 
 import Head from "next/head";

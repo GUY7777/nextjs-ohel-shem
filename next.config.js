@@ -16,6 +16,9 @@ const nextConfig = {
       process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
     CHAMPIONS_IMG_YEAR: process.env.CHAMPIONS_IMG_YEAR,
     CHAMPIONS_IMG_NAME: process.env.CHAMPIONS_IMG_NAME,
+    NEXTAUTH_URL: process.env.NEXTAUTH_URL,
+    NEXTAUTH_USERNAME: process.env.NEXTAUTH_USERNAME,
+    NEXTAUTH_PASSWORD: process.env.NEXTAUTH_PASSWORD,
   },
 };
 

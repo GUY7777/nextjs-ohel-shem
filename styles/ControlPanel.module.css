@@ -1,0 +1,39 @@
+.signoutBtn{
+    background-color: #d23333;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+.select_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.tables__select {
+  margin-top: 1rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 93%;
+  max-width: 400px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid #cbd1d8;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: all .2s ease-in-out;
+  background: #fff url(../components/Tables/down.svg) no-repeat center right 12px / 18px 18px;
+}
+/*IE*/
+.tables__select::-ms-expand {
+  display: none;
+}
+.tables__select:focus {
+  outline: 0;
+  border-color: #7bbaff;
+  box-shadow: 0 0 0 3px rgba(0, 121, 250, .3);
+}
