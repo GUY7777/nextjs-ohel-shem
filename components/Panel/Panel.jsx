@@ -6,6 +6,7 @@ import ReactTags from "react-tag-autocomplete";
 export default function Panel({ year }) {
   var today = new Date();
   const [playersData, setPlayersData] = useState([]);
+  const [championsList, setChampionsList] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
   const [tags, setTags] = useState([]);
   const [inputGoals, setInputGoals] = useState([]);
@@ -74,13 +75,15 @@ export default function Panel({ year }) {
         tempSuggestions.filter((suggest) => !chosenTags.map((tag) => tag.id).includes(suggest.id))
       );
     }
-
+  const dateToDDMMYYYY = (date) => (
+    `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
+  )
   useEffect(() => {
     async function fetchData() {
       let tempPlayersData = [];
       (await firebase.firestore().collection("players").get()).forEach((doc) =>
         tempPlayersData.push(doc.data())
-      );
+      );    
       const goalsAndWinsDatabase = (
         await firebase.firestore().collection("scoreboards").doc(year).get()
       ).data();
@@ -90,6 +93,7 @@ export default function Panel({ year }) {
       tempPlayersData.sort(
         (a, b) => a.name.charCodeAt(0) - b.name.charCodeAt(0)
       );
+      setChampionsList(goalsAndWinsDatabase.champions);
       setPlayersData(tempPlayersData);
       updateSuggestions(tempPlayersData, []);
       setInputGoals(tempPlayersData.map((player) => player.goals));
@@ -141,6 +145,29 @@ export default function Panel({ year }) {
             הוסף
           </button>
           <div>{gameAdded}</div>
+          <div>
+            {championsList?.map((champion, i) => {
+              let comma = false;
+              return (
+                <div key={i}>
+                  {dateToDDMMYYYY(new Date(champion.date.seconds * 1000))} :{" "}
+                  <b>{champion.note}</b>
+                  {champion.players.map((champion) => {
+                    if (comma == false) {
+                      comma = true;
+                      return playersData.find((player) => player.id === champion)?.name;
+                    } else {
+                      return (
+                        ", " +
+                        playersData.find((player) => player.id === champion)?.name
+                      );
+                    }
+                  })}
+                </div>
+              );
+            }
+            )}
+          </div>
         </div>
         <div>
           <h1>גולים</h1>

@@ -5,13 +5,22 @@ import { Links } from "./Links";
 export default function Navbar() {
   const [clicked, setClicked] = useState(false);
   const handleClick = () => {
-    setClicked(!clicked);
+    if(window.innerWidth <= 1110 ){
+      setClicked(!clicked);
+    }
   };
   return (
     <div className="navbar">
       <Link href="/">
         <h1 className="navbar-logo">כדורגל איכותי בשישי</h1>
       </Link>
+      {clicked ? <style>
+        {`
+        html {
+          overflow: hidden;
+        }
+        `}
+      </style> : null}
       <div className="menu-icon" onClick={() => handleClick()}>
         <i className={clicked ? "fas fa-times" : "fas fa-bars"}></i>
       </div>
