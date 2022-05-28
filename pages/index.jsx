@@ -4,10 +4,20 @@ import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
+import firebase from "../database/firebase";
 
 export default function Home() {
   const [ZoomImg, setZoomImg] = useState(-1);
-
+  const [imgYear, setImgYear] = useState("");
+  const [imgName, setImgName] = useState("");
+  const [imgId, setImgId] = useState("");
+  const ref = firebase.firestore().collection("webData").doc("weekChampion");
+  console.log(ref);
+  ref.onSnapshot((querySnapshot) => {
+    setImgYear(querySnapshot.data().year);
+    setImgName(querySnapshot.data().img_name);
+    setImgId(querySnapshot.data().id);
+  });
   useEffect(() => {
     AOS.init({
       duration: 1200,
@@ -55,15 +65,27 @@ export default function Home() {
           <div className={styles.weekChampions} data-aos="fade-down-right">
             <h2>אלופת השבוע</h2>
             <div className={styles.weekChampions_img}>
-              <Image
-                src={`https://firebasestorage.googleapis.com/v0/b/ohel-shem-2a8a9.appspot.com/o/champions-imgs%2F${process.env.CHAMPIONS_IMG_YEAR}%${process.env.CHAMPIONS_IMG_NAME}?alt=media`}
-                alt=""
-                width={2000}
-                height={1100}
-                onClick={() =>
-                  setZoomImg("/images/champions-imgs/2021/KQZT3920.JPG")
-                }
-              />
+              {imgId == 0 ? (
+                <Image
+                  src={`https://firebasestorage.googleapis.com/v0/b/ohel-shem-2a8a9.appspot.com/o/champions-imgs%2F${imgYear}%2F${imgName}?alt=media`}
+                  alt=""
+                  width={2000}
+                  height={1100}
+                  onClick={() =>
+                    setZoomImg("/images/champions-imgs/2021/KQZT3920.JPG")
+                  }
+                />
+              ) : (
+                <Image
+                  src={`https://firebasestorage.googleapis.com/v0/b/ohel-shem-2a8a9.appspot.com/o/${imgId}.jpg?alt=media`}
+                  alt=""
+                  width={2000}
+                  height={1100}
+                  onClick={() =>
+                    setZoomImg("/images/champions-imgs/2021/KQZT3920.JPG")
+                  }
+                />
+              )}
             </div>
           </div>
         </div>
@@ -99,14 +121,27 @@ export default function Home() {
       )}
       {ZoomImg !== -1 ? (
         <div className="popupImage__container">
-          <Image
-            src={ZoomImg}
-            alt=""
-            className="popupImage"
-            width={1000}
-            height={550}
-            onClick={() => setZoomImg(img)}
-          />
+          {imgId == 0 ? (
+            <Image
+              src={`https://firebasestorage.googleapis.com/v0/b/ohel-shem-2a8a9.appspot.com/o/champions-imgs%2F${imgYear}%2F${imgName}?alt=media`}
+              alt=""
+              width={2000}
+              height={1100}
+              onClick={() =>
+                setZoomImg("/images/champions-imgs/2021/KQZT3920.JPG")
+              }
+            />
+          ) : (
+            <Image
+              src={`https://firebasestorage.googleapis.com/v0/b/ohel-shem-2a8a9.appspot.com/o/${imgId}.jpg?alt=media`}
+              alt=""
+              width={2000}
+              height={1100}
+              onClick={() =>
+                setZoomImg("/images/champions-imgs/2021/KQZT3920.JPG")
+              }
+            />
+          )}
         </div>
       ) : (
         <></>

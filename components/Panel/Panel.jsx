@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import styles from './Panel.module.css';
 import firebase from "../../database/firebase";
+import { storage } from "../../database/firebase";
 import ReactTags from "react-tag-autocomplete";
 
 export default function Panel({ year }) {
@@ -13,6 +14,7 @@ export default function Panel({ year }) {
   const [gameAdded, setGameAdded] = useState("");
   const [goalsStatus, setGoalsStatus] = useState("");
   const [note, setNote] = useState("");
+  const [image, setImage] = useState(null);
   const [gameDate, setGameDate] = useState(
     today.getFullYear() +
       "-" +
@@ -34,6 +36,26 @@ export default function Panel({ year }) {
       .update({
         champions: firebase.firestore.FieldValue.arrayUnion(champions),
       });
+      if (image) {
+        const storageRef = storage.ref("champions-imgs/"+year);
+        const imageRef = storageRef.child(image.name);
+        imageRef
+          .put(image)
+          .then(() => {
+            alert("Image uploaded successfully to Firebase.");
+          });
+      } 
+      let id = 0;
+      if(note.includes("אין אלופה")) id = 1;
+      if(note.includes("גשם")) id = 2;
+      firebase.firestore().collection("webData").doc("weekChampion").update({
+        img_name: (image?.name ? image.name : ""),
+        year: year,
+        id: id
+      });
+      // else {
+      //   alert("Please upload an image first.");
+      // }
     setGameAdded("המשחק נוסף בהצלחה");
   };
 
@@ -50,6 +72,23 @@ export default function Panel({ year }) {
         });
     }) 
     setGoalsStatus("כל השינויים נשמרו");
+  };
+  const onImageChange = (e) => {
+    const reader = new FileReader();
+    let file = e.target.files[0]; // get the supplied file
+    // if there is a file, set image to that file
+    if (file) {
+      reader.onload = () => {
+        if (reader.readyState === 2) {
+          console.log(file);
+          setImage(file);
+        }
+      };
+      reader.readAsDataURL(e.target.files[0]);
+      // if there is no file, set image back to null
+    } else {
+      setImage(null);
+    }
   };
     const onDelete = (i) => {
       const newTags = tags.slice(0);
@@ -141,6 +180,8 @@ export default function Panel({ year }) {
             placeholder="הערה"
             onChange={(e) => setNote(e.target.value)}
           />
+          <label>הוסף תמונה של אלופת השבוע</label>
+          <input type="file" id="img" onChange={(e) => onImageChange(e)}/>
           <button className={styles.addGameBtn} onClick={() => handleAddGame()}>
             הוסף
           </button>
@@ -155,18 +196,20 @@ export default function Panel({ year }) {
                   {champion.players.map((champion) => {
                     if (comma == false) {
                       comma = true;
-                      return playersData.find((player) => player.id === champion)?.name;
+                      return playersData.find(
+                        (player) => player.id === champion
+                      )?.name;
                     } else {
                       return (
                         ", " +
-                        playersData.find((player) => player.id === champion)?.name
+                        playersData.find((player) => player.id === champion)
+                          ?.name
                       );
                     }
                   })}
                 </div>
               );
-            }
-            )}
+            })}
           </div>
         </div>
         <div>
