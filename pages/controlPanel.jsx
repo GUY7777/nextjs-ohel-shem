@@ -42,6 +42,7 @@ export default function ControlPanel() {
         <select
           className={styles.tables__select}
           onChange={(e) => setSelected(e.target.value)}
+          value={selected}
         >
           <option value="2022">2022</option>
           <option value="2021">2021</option>

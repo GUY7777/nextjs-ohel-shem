@@ -15,6 +15,10 @@ export const Links = [
         title: 'שחקנים',
         url: '/players',
     },
+    {
+        title: 'ארכיון',
+        url: '/archives',
+    },
      {
         title: 'אירועים',
         url: '/events',

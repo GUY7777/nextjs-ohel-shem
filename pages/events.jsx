@@ -66,16 +66,25 @@ export default function Events() {
           <></>
         )}
         {ZoomImg !== -1 ? (
-          <div className="popupImage__container">
-            <Image
-              src={`https://firebasestorage.googleapis.com/v0/b/ohel-shem-2a8a9.appspot.com/o/events-imgs%2F${ZoomImg}?alt=media`}
-              alt=""
-              className="popupImage"
-              width={516 * 2}
-              height={387 * 2}
-              onClick={() => setZoomImg(img)}
-            />
-          </div>
+          <>
+            <div className="popupImage__container">
+              <Image
+                src={`https://firebasestorage.googleapis.com/v0/b/ohel-shem-2a8a9.appspot.com/o/events-imgs%2F${ZoomImg}?alt=media`}
+                alt=""
+                className="popupImage"
+                width={516 * 2}
+                height={387 * 2}
+                onClick={() => setZoomImg(img)}
+              />
+            </div>
+            <style>
+              {`
+              html {
+                overflow: hidden;
+              }
+              `}
+            </style>
+          </>
         ) : (
           <></>
         )}

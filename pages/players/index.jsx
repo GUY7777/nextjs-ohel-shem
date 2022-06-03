@@ -71,16 +71,25 @@ function Players() {
         <></>
       )}
       {ZoomImg !== -1 ? (
-        <div className="popupImage__container">
-          <Image
-            src={`https://firebasestorage.googleapis.com/v0/b/ohel-shem-2a8a9.appspot.com/o/players-imgs%2F${ZoomImg}.png?alt=media`}
-            alt=""
-            className="popupImage"
-            width={500}
-            height={500}
-            onClick={() => setZoomImg(img)}
-          />
-        </div>
+        <>
+          <div className="popupImage__container">
+            <Image
+              src={`https://firebasestorage.googleapis.com/v0/b/ohel-shem-2a8a9.appspot.com/o/players-imgs%2F${ZoomImg}.png?alt=media`}
+              alt=""
+              className="popupImage"
+              width={500}
+              height={500}
+              onClick={() => setZoomImg(img)}
+            />
+          </div>
+          <style>
+              {`
+              html {
+                overflow: hidden;
+              }
+              `}
+            </style>
+        </>
       ) : (
         <></>
       )}

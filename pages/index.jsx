@@ -122,26 +122,35 @@ export default function Home() {
       {ZoomImg !== -1 ? (
         <div className="popupImage__container">
           {imgId == 0 ? (
-            <Image
+            // <Image
+            //   src={`https://firebasestorage.googleapis.com/v0/b/ohel-shem-2a8a9.appspot.com/o/champions-imgs%2F${imgYear}%2F${imgName}?alt=media`}
+            //   alt=""
+            //   width={2000}
+            //   height={1100}
+            // />
+            <img
               src={`https://firebasestorage.googleapis.com/v0/b/ohel-shem-2a8a9.appspot.com/o/champions-imgs%2F${imgYear}%2F${imgName}?alt=media`}
-              alt=""
-              width={2000}
-              height={1100}
-              onClick={() =>
-                setZoomImg("/images/champions-imgs/2021/KQZT3920.JPG")
-              }
+              className="popupImage"
             />
           ) : (
-            <Image
+            // <Image
+            //   src={`https://firebasestorage.googleapis.com/v0/b/ohel-shem-2a8a9.appspot.com/o/${imgId}.jpg?alt=media`}
+            //   alt=""
+            //   width={2000}
+            //   height={1100}
+            // />
+            <img
               src={`https://firebasestorage.googleapis.com/v0/b/ohel-shem-2a8a9.appspot.com/o/${imgId}.jpg?alt=media`}
-              alt=""
-              width={2000}
-              height={1100}
-              onClick={() =>
-                setZoomImg("/images/champions-imgs/2021/KQZT3920.JPG")
-              }
+              className="popupImage"
             />
           )}
+          <style>
+            {`
+            html {
+              overflow: hidden;
+            }
+            `}
+          </style>
         </div>
       ) : (
         <></>

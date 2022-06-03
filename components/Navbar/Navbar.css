@@ -54,7 +54,7 @@
   display: none;
 }
 
-@media screen and (max-width: 1110px) {
+@media screen and (max-width: 1190px) {
   .nav-menu {
     display: flex;
     flex-direction: column;
@@ -79,8 +79,9 @@
   }
 
   .nav-links {
-    height: calc(100% / 7);
-    min-height: 40px;
+    /* height: calc(100% / 7); */
+    height: calc(100% / 8);
+    min-height: 20px;
     text-align: center;
     padding: 2rem;
     width: 100%;
